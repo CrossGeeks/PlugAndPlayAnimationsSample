@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:GenericAnimationFormsSample" 
+             x:Class="GenericAnimationFormsSample.MainPage" 
+             xmlns:behaviors="clr-namespace:GenericAnimationFormsSample.Behaviors">
+   <StackLayout VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Spacing="15">
+        
+        <Label Text="Testing animation" 
+               FontAttributes="Bold"
+               TextColor="DeepPink"
+               HorizontalTextAlignment="Center"
+               FontSize="20">
+            <Label.Behaviors>
+                <behaviors:ViewTappedButtonBehavior Command="{Binding OnLoginCommand}"
+                                                    AnimationType="Fade"/>
+            </Label.Behaviors>
+        </Label>
+        
+        <Image Source="ic_favorite"
+               WidthRequest="40"
+               HeightRequest="40">
+                <Image.Behaviors>
+                    <behaviors:ViewTappedButtonBehavior Command="{Binding OnLoginCommand}"
+                                                        AnimationType="Scale"/>
+                </Image.Behaviors>
+        </Image>
+         
+         <Button TextColor="White"
+                 HorizontalOptions="FillAndExpand"
+                 BackgroundColor="Red"
+                 Text="Login">
+                <Button.Behaviors>
+                    <behaviors:ViewTappedButtonBehavior Command="{Binding OnLoginCommand}"
+                                                        AnimationType="Scale"/>
+                </Button.Behaviors>
+         </Button>
+        
+        <StackLayout HorizontalOptions="CenterAndExpand"
+                     Orientation="Horizontal"
+                     BackgroundColor="LimeGreen"
+                     Padding="20">
+                <Label Text="Testing Stacklayout"
+                       TextColor="White"/>
+            
+                <Label Text="TWO Labels"
+                       TextColor="White"/>
+                <StackLayout.Behaviors>
+                    <behaviors:ViewTappedButtonBehavior Command="{Binding OnDiscussionBoardCommand}"
+                                                        AnimationType="Rotate"/>
+                </StackLayout.Behaviors>
+         </StackLayout>
+    
+      
+         <StackLayout HorizontalOptions="CenterAndExpand">
+                <Label Text="Discussion"
+                       TextColor="Black"/>
+                <StackLayout.Behaviors>
+                    <behaviors:ViewTappedButtonBehavior Command="{Binding OnDiscussionBoardCommand}"
+                                                        AnimationType="FlipVertical"/>
+                </StackLayout.Behaviors>
+         </StackLayout>
+        
+            <Switch>
+                 <Switch.Behaviors>
+                    <behaviors:ViewTappedButtonBehavior Command="{Binding OnDiscussionBoardCommand}"
+                                                        AnimationType="Shake"/>
+                </Switch.Behaviors>
+             </Switch>
+        
+            <BoxView Color="RoyalBlue"
+                     WidthRequest="50"
+                     HeightRequest="50">
+                <BoxView.Behaviors>
+                    <behaviors:ViewTappedButtonBehavior Command="{Binding OnDiscussionBoardCommand}"
+                                                        AnimationType="FlipHorizontal"/>
+                </BoxView.Behaviors>
+            </BoxView>
+       
+         <Entry HeightRequest="40"
+                Text="{Binding UserName}">
+             <Entry.Behaviors>
+                    <behaviors:EntryShakeBehavior Shake="{Binding ShakeCommand}"/>
+                </Entry.Behaviors>
+        </Entry>
+    </StackLayout>
+</ContentPage>
